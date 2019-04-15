@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+</head>
+<body>
+<h2>Cookie/Session Test</h2>
+    <div style="text-align:center">
+        name:<br>
+        <input id="name" type="text" name="name" value="yf"><br>
+        password:<br>
+        <input id="pwd" type="text" name="pwd" value="123456"><br><br>
+        <button id="submit" >提交</button>
+    </div>
+<script>
+    $("button").click(function(){
+        console.log("click");
+        $.ajax({
+            url:"/login",
+            type:"post",
+            data:{"name":$("#name").val(),"pwd":$("#pwd").val()},
+            success:function(result){
+                window.location="/"
+            }});
+    });
+</script>
+</body>
+</html>

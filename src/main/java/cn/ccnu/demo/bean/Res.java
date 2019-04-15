@@ -30,4 +30,13 @@ public class Res {
     public void setrPath(String rPath) {
         this.rPath = rPath == null ? null : rPath.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Res{" +
+                "rId=" + rId +
+                ", rMd5='" + rMd5 + '\'' +
+                ", rPath='" + rPath + '\'' +
+                '}';
+    }
 }

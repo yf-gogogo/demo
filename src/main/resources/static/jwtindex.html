@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+</head>
+<body>
+<div style="text-align:center">
+    <h1>JWT主界面</h1>
+    <h2 id="content"></h2>
+
+</div>
+<script>
+    $.ajax({
+        url:"/autologinvertify",
+        type:"get",
+        beforeSend: function (XMLHttpRequest) {
+            XMLHttpRequest.setRequestHeader("authorization", "bearer "+window.localStorage["token"]);
+        },
+        success:function(result){
+            if(result.msg!='ok'){
+                window.localStorage.clear();
+                window.location='/jwtlogin.html';
+            }else {
+                $("h2").html("欢迎"+result.name);
+            }
+
+        }});
+</script>
+</body>
+</html>

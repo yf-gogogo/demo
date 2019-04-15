@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+</head>
+<body>
+<div style="text-align:center">
+    <h2>JWT Test</h2>
+    name:<br>
+    <input id="name" type="text" name="name" value="yf"><br>
+    password:<br>
+    <input id="pwd" type="text" name="pwd" value="123456"><br><br>
+    <button id="submit" >提交</button>
+</div>
+<script>
+    $("button").click(function(){
+        console.log("click");
+        $.ajax({
+            url:"/jwt",
+            type:"post",
+            data:{"name":$("#name").val(),"pwd":$("#pwd").val()},
+            success:function(result){
+                if(!window.localStorage){
+                    alert("浏览器支持localstorage");
+                    return false;
+                }else{
+                    //主逻辑业务
+                    var storage=window.localStorage;
+                    storage["token"] = result.token;
+                }
+                window.location="/jwtindex.html"
+            }});
+    });
+</script>
+</body>
+</html>

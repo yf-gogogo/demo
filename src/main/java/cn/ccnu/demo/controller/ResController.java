@@ -3,10 +3,7 @@ package cn.ccnu.demo.controller;
 import cn.ccnu.demo.bean.Res;
 import cn.ccnu.demo.sevice.impl.ResServicelmpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,4 +22,6 @@ public class ResController {
     public List<Res> listRes(){
         return resServicelmpl.getAllRes();
     }
+
+
 }
